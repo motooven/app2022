@@ -39,7 +39,16 @@
     padding: 0.5%;
 }
 .dialogs {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+
     background-color: #adade0;
     grid-area: p;
     padding: 0.5%;
+}
+.dialogs a {
+    text-decoration: none;
+}
+.dialogs .active {
+    color: #219a14;
 }
