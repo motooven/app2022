@@ -1,4 +1,7 @@
 .app-wrapper {
+    margin: 0 auto;
+    width:  500px;
+
     display: grid;
     grid-template-areas:
             "h h h "
@@ -6,7 +9,7 @@
             "f f f ";
 
     grid-template-columns: 1fr 4fr 1fr;
-    grid-template-rows: 2fr 8fr 2fr;
+    grid-template-rows: 1fr 8fr 1fr;
 }
 
 .headers {
@@ -19,6 +22,12 @@
     grid-area: n;
     padding: 3%;
 }
+.navbar a {
+    text-decoration: none;
+}
+.navbar .active {
+    color: #219a14;
+}
 .profile {
     background-color: #adade0;
     grid-area: p;
@@ -27,5 +36,10 @@
 .footer {
     background-color: #ca93db;
     grid-area: f;
+    padding: 0.5%;
+}
+.dialogs {
+    background-color: #adade0;
+    grid-area: p;
     padding: 0.5%;
 }
