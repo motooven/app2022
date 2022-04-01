@@ -5,7 +5,7 @@
             "n p p"
             "f f f ";
 
-    grid-template-columns: 1fr 6fr 1fr;
+    grid-template-columns: 1fr 4fr 1fr;
     grid-template-rows: 2fr 8fr 2fr;
 }
 
