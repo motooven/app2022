@@ -3,6 +3,13 @@ import {NavLink} from "react-router-dom";
 
 
 const Dialogs = (props) => {
+
+    let elementRef = React.createRef()
+    let addPost = () => {
+        let text = elementRef.current.value
+        alert(text)
+    }
+
     return (
         <div className="dialogs">
             <div>
@@ -14,6 +21,10 @@ const Dialogs = (props) => {
                 {props.state.dialogPage.map(d => <div key={d.id}>
                     {d.message}
                 </div>)}
+            </div>
+            <div>
+                <textarea ref={elementRef}></textarea><br/>
+                <button onClick={addPost}>add Post</button>
             </div>
         </div>
     )

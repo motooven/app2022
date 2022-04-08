@@ -2,13 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import state from "./Redux/State";
+import state, {addPostProfile} from "./Redux/State";
 
 
-ReactDOM.render(
-    <App state={state}/>,
-  document.getElementById('root')
-)
+const rerenderApp = () => {
+    ReactDOM.render(
+        <App state={state} addPostProfile={addPostProfile}/>,
+        document.getElementById('root')
+    )
+}
+
+rerenderApp()
+
 
 
 reportWebVitals()
+export default rerenderApp

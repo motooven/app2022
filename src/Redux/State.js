@@ -1,3 +1,4 @@
+import rerenderApp from "../index";
 
 const state = {
 
@@ -12,6 +13,16 @@ const state = {
         {id:2, name: "Vita", message: "Eeeee"},
         {id:3, name: "Diams", message: "Eeeeeeeee"},
     ],
+
+}
+
+export const addPostProfile = (text) => {
+    let newPost = {
+        id: 4,
+        message: text
+    }
+    state.profilePage.push(newPost)
+    rerenderApp()
 
 }
 
