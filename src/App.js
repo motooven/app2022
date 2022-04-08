@@ -9,8 +9,8 @@ import Dialogs from "./components/Dialogs/Dialogs";
 
 
 const App = (props) => {
-  return (
-      <BrowserRouter>
+    return (
+       <BrowserRouter>
           <div className='app-wrapper'>
               <Headers/>
               <Navbar/>
