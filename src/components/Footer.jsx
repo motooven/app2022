@@ -8,4 +8,6 @@ const Footer = () => {
     );
 };
 
+let md;
+
 export default Footer;
