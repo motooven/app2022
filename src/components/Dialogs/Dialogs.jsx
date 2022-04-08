@@ -1,22 +1,23 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
 
-const Dialogs = () => {
+
+const Dialogs = (props) => {
     return (
         <div className="dialogs">
             <div>
-                <div><NavLink to="/dialogs/1">Oleg</NavLink></div>
-                <div><NavLink to="/dialogs/2">Jeka</NavLink></div>
-                <div><NavLink to="/dialogs/3">Ivan</NavLink></div>
-
+                {props.state.dialogPage.map(d => <div key={d.id}>
+                    <NavLink to={`dialogs/${d.id}`}>{d.name}</NavLink>
+                </div>)}
             </div>
             <div>
-                <div>Eee</div>
-                <div>Eeeeee</div>
-                <div>Eeeeeeeeee</div>
+                {props.state.dialogPage.map(d => <div key={d.id}>
+                    {d.message}
+                </div>)}
             </div>
         </div>
-    );
-};
+    )
+}
+
 
 export default Dialogs;

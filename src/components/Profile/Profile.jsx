@@ -1,11 +1,11 @@
 import React from 'react';
 import MyPost from "./MyPost";
 
-const Profile = () => {
+const Profile = (props) => {
     return (
         <div className='profile'>
             <div>Avatarka</div>
-            <MyPost/>
+            <MyPost state={props.state}/>
         </div>
     );
 };
