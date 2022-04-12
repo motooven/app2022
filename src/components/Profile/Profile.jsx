@@ -5,7 +5,10 @@ import InfoProfile from "./InfoProfile";
 const Profile = (props) => {
     return (
         <div className='profile'>
-            <InfoProfile addPostProfile={props.addPostProfile}/>
+            <InfoProfile
+                state={props.state}
+                dispatch={props.dispatch}
+            />
             <MyPost state={props.state}/>
         </div>
     );

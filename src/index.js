@@ -2,17 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import state, {addPostProfile} from "./Redux/State";
+import store from "./Redux/State";
 
 
 const rerenderApp = () => {
     ReactDOM.render(
-        <App state={state} addPostProfile={addPostProfile}/>,
+        <App
+            state={store.getState()}
+            dispatch={store.dispatch.bind(store)}
+        />,
         document.getElementById('root')
     )
 }
 
 rerenderApp()
+store.subscriber(rerenderApp)
 
 
 
