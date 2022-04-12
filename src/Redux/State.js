@@ -46,5 +46,5 @@ const store = {
 
 window.state = store
 export default store
-
+//40 yrok
 
