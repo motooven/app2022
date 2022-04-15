@@ -7,9 +7,9 @@ const InfoProfile = (props) => {
 
     let elementRef = React.createRef()
 
-    let addPost = (e) => {
-        let text = e.currentTarget.value
-        props.addPost(text)
+    let addPost = () => {
+        //let text = e.currentTarget.value
+        props.addPost()
     }
 
     let updatePost = () => {

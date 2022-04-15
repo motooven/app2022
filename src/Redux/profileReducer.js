@@ -21,15 +21,14 @@ const profileReducer = (state = initialState, action) => {
                 id: 4,
                 message: state.textProfile
             }
-            let copyStateAd = {...state}
-            copyStateAd.profilePage.push(newPost)
-            copyStateAd.textProfile = ''
-            return copyStateAd
+            return {
+                ...state,
+                profilePage: [...state.profilePage, newPost],
+                textProfile: ''
+            }
 
         case UPDATE_POST:
-            let copyStateUp = {...state}
-            copyStateUp.textProfile = action.text
-            return copyStateUp
+            return {...state, textProfile: action.text}
 
         default:
             return state

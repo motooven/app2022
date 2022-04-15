@@ -12,8 +12,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addPost: (text) => {
-            dispatch(addPostDialogAC(text))
+        addPost: () => {
+            dispatch(addPostDialogAC())
         },
         updatePost: (text) => {
             dispatch(updatePostDialogAC(text))

@@ -3,9 +3,10 @@ import {NavLink} from "react-router-dom";
 
 
 const Dialogs = (props) => {
-    let addPost = (e) => {
-       let text = e.currentTarget.value
-       props.addPost(text)
+
+    let addPost = () => {
+       //let text = e.currentTarget.value
+       props.addPost()
     }
     let updatePost = (e) => {
         let text = e.currentTarget.value
