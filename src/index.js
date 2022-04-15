@@ -6,19 +6,13 @@ import store from "./Redux/redux-store"
 import {Provider} from "react-redux";
 
 
-const rerenderApp = () => {
-    ReactDOM.render(
-        <Provider store={store}>
-            <App />
-        </Provider>,
-        document.getElementById('root')
-    )
-}
 
-rerenderApp()
-store.subscribe(rerenderApp)
+ReactDOM.render(
+    <Provider store={store}>
+        <App/>
+    </Provider>,
+    document.getElementById('root'))
 
 
 
 reportWebVitals()
-export default rerenderApp

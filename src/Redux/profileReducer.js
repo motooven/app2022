@@ -28,8 +28,8 @@ const profileReducer = (state = initialState, action) => {
 
         case UPDATE_POST:
             let copyStateUp = {...state}
-            state.textProfile = action.text
-            return state
+            copyStateUp.textProfile = action.text
+            return copyStateUp
 
         default:
             return state
