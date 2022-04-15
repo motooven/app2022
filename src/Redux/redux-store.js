@@ -9,6 +9,11 @@ const reducers = combineReducers({
 })
 
 
-const Store = createStore(reducers)
+const store = createStore(reducers)
+window.store = store
+export default store
 
-export default Store
+
+
+
+

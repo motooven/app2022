@@ -4,7 +4,7 @@ import Post from "./Post";
 const MyPost = (props) => {
     return (
         <div>
-            <Post state={props.state}/>
+            <Post state={props.state.profilePage}/>
         </div>
     );
 };

@@ -21,11 +21,13 @@ const profileReducer = (state = initialState, action) => {
                 id: 4,
                 message: state.textProfile
             }
-            state.profilePage.push(newPost)
-            state.textProfile = ''
-            return state
+            let copyStateAd = {...state}
+            copyStateAd.profilePage.push(newPost)
+            copyStateAd.textProfile = ''
+            return copyStateAd
 
         case UPDATE_POST:
+            let copyStateUp = {...state}
             state.textProfile = action.text
             return state
 

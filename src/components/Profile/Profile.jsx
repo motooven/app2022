@@ -3,13 +3,15 @@ import MyPost from "./MyPost";
 import InfoProfile from "./InfoProfile";
 
 const Profile = (props) => {
+
     return (
         <div className='profile'>
             <InfoProfile
-                state={props.state}
-                dispatch={props.dispatch}
+                    state={props.profilePage}
+                    addPost={props.addPost}
+                    updatePost={props.updatePost}
             />
-            <MyPost state={props.state}/>
+            <MyPost state={props.profilePage}/>
         </div>
     );
 };

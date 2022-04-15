@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from "./Redux/redux-store"
+import {Provider} from "react-redux";
 
 
 const rerenderApp = () => {
     ReactDOM.render(
-        <App
-            state={store.getState()}
-            dispatch={store.dispatch.bind(store)}
-        />,
+        <Provider store={store}>
+            <App />
+        </Provider>,
         document.getElementById('root')
     )
 }

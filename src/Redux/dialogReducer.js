@@ -22,13 +22,15 @@ const dialogReducer = (state = initialState, action) => {
                 id: 4,
                 message: state.textDialog
             }
-            state.dialogPage.push(newPost)
-            state.textDialog = ''
-            return state
+            let copyStateAdd = {...state}
+            copyStateAdd.dialogPage.push(newPost)
+            copyStateAdd.textDialog = ''
+            return copyStateAdd
 
         case UPDATE_POST_DIALOG:
-            state.textDialog = action.text
-            return state
+            let copyStateUp = {...state}
+            copyStateUp.textDialog = action.text
+            return copyStateUp
 
         default:
             return state
