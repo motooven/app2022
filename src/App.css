@@ -52,3 +52,8 @@
 .dialogs .active {
     color: #219a14;
 }
+
+.ImgAvaUser {
+    width: 60px;
+    height: 60px;
+}

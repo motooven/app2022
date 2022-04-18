@@ -12,17 +12,17 @@ import {UserContainer} from "./components/Users/UserContainer";
 
 const App = () => {
     return (
-       <BrowserRouter>
-          <div className='app-wrapper'>
-              <Headers/>
-              <Navbar/>
-              <Route path="/profile" render={ () => <ProfileContainer/> } />
-              <Route path="/dialogs" render={ () => <DialogContainer/> } />
-              <Route path="/users" render={ () => <UserContainer/> } />
-              <Footer/>
-          </div>
-      </BrowserRouter>
-  )
+        <BrowserRouter>
+            <div className='app-wrapper'>
+                <Headers/>
+                <Navbar/>
+                <Route path="/profile" render={ () => <ProfileContainer/> } />
+                <Route path="/dialogs" render={ () => <DialogContainer/> } />
+                <Route path="/users" render={ () => <UserContainer/> } />
+                <Footer/>
+            </div>
+        </BrowserRouter>
+    )
 }
 
 
