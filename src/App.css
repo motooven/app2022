@@ -9,7 +9,7 @@
             "f f f ";
 
     grid-template-columns: 1fr 4fr 1fr;
-    grid-template-rows: 1fr 8fr 1fr;
+    grid-template-rows: 1fr 30fr 1fr;
 }
 
 .headers {
@@ -56,4 +56,8 @@
 .ImgAvaUser {
     width: 60px;
     height: 60px;
+}
+
+.buttonSetUsers {
+    margin: 1.5%;
 }

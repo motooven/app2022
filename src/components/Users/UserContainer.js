@@ -2,13 +2,13 @@ import {followAC, setUsersAC, unfollowAC} from "../../Redux/userReducer";
 import {connect} from "react-redux";
 import Users from "./Users";
 
-const mapStateToProps = (state) => {
+const mstp = (state) => {
     return {
         users: state.usersPage.users
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mdtp = (dispatch) => {
     return {
         follow: (userId) => {dispatch(followAC(userId))},
         unfollow: (userId) => {dispatch(unfollowAC(userId))},
@@ -16,4 +16,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export const UserContainer = connect(mapStateToProps, mapDispatchToProps)(Users)
+export const UserContainer = connect(mstp, mdtp)(Users)
