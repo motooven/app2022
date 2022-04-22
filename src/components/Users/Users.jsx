@@ -4,15 +4,10 @@ import AvatarUser from "../../Logotip/user_03.png"
 
 class Users extends React.Component {
 
-
-        constructor(props) {
-            super(props);
-        }
-
         componentDidMount() {
-            // alert("Создаю новый обект Users с помощью componentDidMount")
             axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.numberPage}&count=${this.props.userPage}`).then(response => {
                 this.props.setUsers(response.data.items)
+                //this.props.setPaginationUsers(response.data.totalCount)
             })
         }
 
@@ -20,6 +15,7 @@ class Users extends React.Component {
         this.props.setCurrentPage(p)
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${p}&count=${this.props.userPage}`).then(response => {
             this.props.setUsers(response.data.items)
+
         })
     }
 
@@ -35,10 +31,9 @@ class Users extends React.Component {
              <div className="buttonSetUsers">
                  {
                      page.map(p => {
-                         return <span
-                         key={p.id}
-                         className={ this.props.pageReal === p && "paginationStiles" }
-                         onClick={ () => {this.funcZapros(p)} }>{p}</span>})
+                         return <span key={p.id}
+                                      className={ this.props.pageReal === p && "paginationStiles" }
+                                      onClick={ () => {this.funcZapros(p)} }>{p}</span>})
 
                  }
                  {

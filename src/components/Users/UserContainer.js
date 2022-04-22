@@ -1,4 +1,4 @@
-import {followAC, setCurrentPageAC, setUsersAC, unfollowAC} from "../../Redux/userReducer";
+import {followAC, setCurrentPageAC, setPaginationUsersAC, setUsersAC, unfollowAC} from "../../Redux/userReducer";
 import {connect} from "react-redux";
 import Users from "./Users";
 
@@ -16,7 +16,8 @@ const mdtp = (dispatch) => {
         follow: (userId) => {dispatch(followAC(userId))},
         unfollow: (userId) => {dispatch(unfollowAC(userId))},
         setUsers: (users) => {dispatch(setUsersAC(users))},
-        setCurrentPage: (pageNumber) => {dispatch(setCurrentPageAC(pageNumber))}
+        setCurrentPage: (pageNumber) => {dispatch(setCurrentPageAC(pageNumber))},
+        setPaginationUsers: (pagination) => {dispatch(setPaginationUsersAC(pagination))}
     }
 }
 
