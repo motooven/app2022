@@ -13,9 +13,9 @@ export const setPaginationUsersAC = (pagination) => ({type:SET_PAGINATION_USERS,
 
 const initialState = {
     users: [ ],
-    numberPage: 100,
+    numberPage: 50,
     userPage: 5,
-    pageReal: 3
+    pageReal: 10
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -43,6 +43,7 @@ const usersReducer = (state = initialState, action) => {
                 ...state, users: action.users
             }
         case SET_CURRENT_PAGE:
+
             return  {
                 ...state, pageReal: action.pageNumber
             }
