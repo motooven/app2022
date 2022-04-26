@@ -1,6 +1,16 @@
-import {followAC, setCurrentPageAC, setPaginationUsersAC, setUsersAC, unfollowAC} from "../../Redux/userReducer";
+import {
+    followAC,
+    setCurrentPageAC,
+    setIsFetchingAc,
+    setPaginationUsersAC,
+    setUsersAC,
+    unfollowAC
+} from "../../Redux/userReducer";
 import {connect} from "react-redux";
 import Users from "./Users";
+
+
+
 
 const mstp = (state) => {
     return {
@@ -8,6 +18,7 @@ const mstp = (state) => {
         numberPage: state.usersPage.numberPage,
         userPage: state.usersPage.userPage,
         pageReal: state.usersPage.pageReal,
+        isFetching: state.usersPage.isFetching
     }
 }
 
@@ -17,8 +28,18 @@ const mdtp = (dispatch) => {
         unfollow: (userId) => {dispatch(unfollowAC(userId))},
         setUsers: (users) => {dispatch(setUsersAC(users))},
         setCurrentPage: (pageNumber) => {dispatch(setCurrentPageAC(pageNumber))},
-        setPaginationUsers: (pagination) => {dispatch(setPaginationUsersAC(pagination))}
+        setPaginationUsers: (pagination) => {dispatch(setPaginationUsersAC(pagination))},
+        setIsFetching: (fetching) => {dispatch(setIsFetchingAc(fetching))}
     }
 }
 
-export const UserContainer = connect(mstp, mdtp)(Users)
+export const UserContainer = connect(mstp,
+    {
+        follow: followAC,
+        unfollow: unfollowAC,
+        setUsers: setUsersAC,
+        setCurrentPage: setCurrentPageAC,
+        setPaginationUsers: setPaginationUsersAC,
+        setIsFetching: setIsFetchingAc,
+    }
+                                    )(Users)

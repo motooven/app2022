@@ -65,16 +65,24 @@ export default Users
 import React from 'react';
 import * as axios from "axios";
 import Avatar from "../../Logotip/user_03.png"
+import Preloader from "../common/Preloader/Preloader";
+
+
 
 class Users extends React.Component {
 
     componentDidMount() {
+        this.props.setIsFetching(true)
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.numberPage}&count=${this.props.userPage}`).then(response => {
+            this.props.setIsFetching(false)
             this.props.setUsers(response.data.items)
         })
     }
+
     FuncZapros(p) {
+        this.props.setIsFetching(true)
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${p}&count=${this.props.userPage}`).then(response => {
+            this.props.setIsFetching(false)
             this.props.setUsers(response.data.items)
             this.props.setCurrentPage(p)
 
@@ -83,35 +91,44 @@ class Users extends React.Component {
 
     render() {
 
-        const pagination = Math.ceil( this.props.numberPage / this.props.userPage )
+        const pagination = Math.ceil(this.props.numberPage / this.props.userPage)
         const page = []
         for (let i = 1; i <= pagination; ++i) {
             page.push(i)
         }
         return (
-            <div className="buttonSetUsers">
+            <>
+                <div className="buttonSetUsers">
+                    {this.props.isFetching ? <Preloader /> : null}
+                    <br/>
+                    {page.map(p => {
+                        return <span
+                            key={p.id}
+                            onClick={() => {
+                                this.FuncZapros(p)
+                            }}
+                            className={this.props.pageReal === p && "paginationStiles"}
+                        >{p}</span>
+                    })}
 
-                {page.map(p => {
-                    return <span
-                                key={p.id}
-                                onClick={  () =>  {this.FuncZapros(p)} }
-                                className={this.props.pageReal === p && "paginationStiles"}
-                    >{p}</span>
-                } )}
-
-                {
-                    this.props.users.map(u => <div key={u.id}>
-                        <img src={ u.photos.small ? u.photos.small : Avatar } className="ImgAvaUser" alt="pic"/>
-                        <div>{u.id}</div>
-                        <div>{u.name}</div>
-                        {
-                            u.followed ? <button onClick={ () => {this.props.unfollow(u.id)} }>Unfollow</button>
-                                       : <button onClick={ () => {this.props.follow(u.id)} }>Follow</button>
-                        }
-                        <br/><br/>
-                    </div>)
-                }
-            </div>
+                    {
+                        this.props.users.map(u => <div key={u.id}>
+                            <img src={u.photos.small ? u.photos.small : Avatar} className="ImgAvaUser" alt="pic"/>
+                            <div>{u.id}</div>
+                            <div>{u.name}</div>
+                            {
+                                u.followed ? <button onClick={() => {
+                                        this.props.unfollow(u.id)
+                                    }}>Unfollow</button>
+                                    : <button onClick={() => {
+                                        this.props.follow(u.id)
+                                    }}>Follow</button>
+                            }
+                            <br/><br/>
+                        </div>)
+                    }
+                </div>
+            </>
         )
     }
 }
