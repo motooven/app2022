@@ -1,6 +1,7 @@
 import React from 'react';
 import {addPostAC, updatePostAC} from "../../Redux/profileReducer";
 import Preloader from "../common/Preloader/Preloader";
+import Avatar from "../../Logotip/user_03.png"
 
 
 const InfoProfile = (props) => {
@@ -21,8 +22,8 @@ const InfoProfile = (props) => {
     }
 
     return (
-        <div>
-            <img src={props.users.photos.small}/>
+        <div className="ProfileStyles">
+            <img src={props.users.photos.small ? props.users.photos.small : Avatar }/>
             <div>aboutMe: {props.users.aboutMe}</div>
             {/*<div>contacts: {props.users.contacts}</div>*/}
             <div>fullName: {props.users.fullName}</div>

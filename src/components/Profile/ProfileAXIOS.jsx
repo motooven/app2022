@@ -8,7 +8,11 @@ import axios from "axios";
 class ProfileAXIOS extends React.Component {
 
     componentDidMount() {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/2`).then(response => {
+        let userId = this.props.match.params.userId
+        if (!userId) {
+            userId = 12938
+        }
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/` + userId).then(response => {
             this.props.setDataUserId(response.data)
         })
     }

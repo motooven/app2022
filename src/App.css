@@ -33,6 +33,13 @@
     grid-area: p;
     padding: 0.5%;
 }
+.ProfileStyles {
+    padding: 1%;
+}
+.ProfileStyles img {
+    width: 20%;
+}
+
 .footer {
     background-color: #ca93db;
     grid-area: f;

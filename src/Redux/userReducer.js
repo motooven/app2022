@@ -16,7 +16,7 @@ export const setIsFetchingAc = (fetching) => ({type: SET_TOGGLE_FETCHING, fetchi
 
 const initialState = {
     users: [ ],
-    numberPage: 50,
+    numberPage: 100,
     userPage: 5,
     pageReal: 10,
     isFetching: false,

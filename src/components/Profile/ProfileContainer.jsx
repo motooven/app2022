@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import ProfileAXIOS from "./ProfileAXIOS";
 import {addPostAC, updatePostAC} from "../../Redux/profileReducer";
 import {setProfileUserAC} from "../../Redux/profileReducer";
+import {withRouter} from "react-router-dom";
 
 
 
@@ -22,4 +23,6 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export const ProfileContainer = connect(mapStateToProps, mapDispatchToProps)(ProfileAXIOS)
+const WithUrlComponent = withRouter(ProfileAXIOS)
+
+export const ProfileContainer = connect(mapStateToProps, mapDispatchToProps)(WithUrlComponent)
