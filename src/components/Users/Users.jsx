@@ -66,6 +66,7 @@ import React from 'react';
 import * as axios from "axios";
 import Avatar from "../../Logotip/user_03.png"
 import Preloader from "../common/Preloader/Preloader";
+import {NavLink} from "react-router-dom";
 
 
 
@@ -113,7 +114,9 @@ class Users extends React.Component {
 
                     {
                         this.props.users.map(u => <div key={u.id}>
-                            <img src={u.photos.small ? u.photos.small : Avatar} className="ImgAvaUser" alt="pic"/>
+                            <NavLink to={`/profile/` + u.id}>
+                                <img src={u.photos.small ? u.photos.small : Avatar} className="ImgAvaUser" alt="pic"/>
+                            </NavLink>
                             <div>{u.id}</div>
                             <div>{u.name}</div>
                             {

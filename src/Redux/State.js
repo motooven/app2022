@@ -9,7 +9,7 @@ const store = {
                 {id:2, message: "Eeeee"},
                 {id:3, message: "Eeeeeeee"},
             ],
-            textProfile: "text Profile",
+            textProfile: "text ProfileAXIOS",
         },
 
         dialog: {
